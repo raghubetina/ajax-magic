@@ -11,22 +11,14 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :chat_id, style: "display: block" %>
-    <%= form.text_field :chat_id %>
+  <%= form.hidden_field :chat_id %>
+
+  <div class="mb-3">
+    <%= form.label :content, class: "visually-hidden" %>
+    <%= form.text_field :content, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.label :author, style: "display: block" %>
-    <%= form.text_field :author %>
-  </div>
-
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.text_field :content %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary w-100" %>
   </div>
 <% end %>

@@ -1,17 +1,15 @@
-<div id="<%= dom_id message %>">
-  <p>
-    <strong>Chat:</strong>
-    <%= message.chat_id %>
-  </p>
+<div id="<%= dom_id message %>" class="list-group-item">
+  <div class="d-flex justify-content-between align-items-baseline">
+    <div class="fw-bold text-muted">
+      <%= message.author %>
+    </div>
 
-  <p>
-    <strong>Author:</strong>
-    <%= message.author %>
-  </p>
+    <div class="text-muted small">
+      <%= time_ago_in_words(message.created_at) %> ago
+    </div>
+  </div>
 
-  <p>
-    <strong>Content:</strong>
+  <div>
     <%= message.content %>
-  </p>
-
+  </div>
 </div>
