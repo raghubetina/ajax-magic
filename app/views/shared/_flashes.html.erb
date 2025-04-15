@@ -1,0 +1,17 @@
+<div class="toast-container position-fixed top-0 end-0 p-3">
+  <% flash.each do |type, message| %>
+    <% border_class = case type
+                     when "notice" then "border-success"
+                     when "alert" then "border-danger"
+                     when "info" then "border-info"
+                     when "warning" then "border-warning"
+                     else "border-#{type}"
+                     end %>
+    <div data-controller="toast" class="toast border <%= border_class %>" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-body d-flex justify-content-between text-dark">
+        <%= message %>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  <% end %>
+</div>
