@@ -8,4 +8,13 @@
 #  updated_at :datetime         not null
 #
 class Chat < ApplicationRecord
+  after_create :update_subject
+
+  has_many :messages, dependent: :destroy
+
+  def update_subject
+    if subject.blank?
+      update(subject: "Chat ##{id}")
+    end
+  end
 end

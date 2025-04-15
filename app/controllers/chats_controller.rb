@@ -3,7 +3,7 @@ class ChatsController < ApplicationController
 
   # GET /chats or /chats.json
   def index
-    @chats = Chat.all
+    @chats = Chat.order(created_at: :desc)
   end
 
   # GET /chats/1 or /chats/1.json
@@ -21,7 +21,7 @@ class ChatsController < ApplicationController
 
   # POST /chats or /chats.json
   def create
-    @chat = Chat.new(chat_params)
+    @chat = Chat.create
 
     respond_to do |format|
       if @chat.save
