@@ -4,8 +4,16 @@
       <%= message.author %>
     </div>
 
-    <div class="text-muted small">
-      <%= time_ago_in_words(message.created_at) %> ago
+    <div class="d-flex gap-2 small">
+      <% if current_user == message.author %>
+        <%= link_to "Edit", edit_message_path(message), class: "text-muted" %>
+
+        <%= link_to "Delete", message, data: { turbo: true, turbo_method: "delete" }, class: "text-muted" %>
+      <% end %>
+
+      <div class="text-muted">
+        <%= time_ago_in_words(message.created_at) %> ago
+      </div>
     </div>
   </div>
 
