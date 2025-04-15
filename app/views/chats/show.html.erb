@@ -1,5 +1,7 @@
 <% content_for :title, @chat.subject %>
 
+<%= turbo_stream_from @chat %>
+
 <div id="<%= dom_id(@chat) %>">
   <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">

@@ -19,4 +19,8 @@
 #
 class Message < ApplicationRecord
   belongs_to :chat
+
+  after_create_commit -> { broadcast_refresh_to chat }
+  after_update_commit -> { broadcast_refresh_to chat }
+  after_destroy_commit -> { broadcast_refresh_to chat }
 end
