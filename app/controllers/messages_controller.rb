@@ -30,6 +30,8 @@ class MessagesController < ApplicationController
         format.html { redirect_to @message.chat }
         format.json { render :show, status: :created, location: @message }
       else
+        pp @message.errors
+        format.turbo_stream { render "create_validation_errors" }
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end

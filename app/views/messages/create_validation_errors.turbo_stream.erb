@@ -1,0 +1,3 @@
+<%= turbo_stream.replace dom_id(Message, :new_form) do %>
+  <%= render "messages/new_form", message: @message %>
+<% end %>
