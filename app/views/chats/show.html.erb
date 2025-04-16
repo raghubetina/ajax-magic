@@ -15,9 +15,7 @@
     <div class="list-group list-group-flush mt-2">
       <%= render @chat.messages %>
 
-      <div class="list-group-item">
-        <%= render "messages/form", message: @chat.messages.build %>
-      </div>
+      <%= render "messages/new_form", message: @chat.messages.build %>
     </div>
   </div>
 </div>
