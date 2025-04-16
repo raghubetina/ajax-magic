@@ -6,7 +6,7 @@
 
     <div class="d-flex gap-2 small">
       <% if current_user == message.author %>
-        <%= link_to "Edit", edit_message_path(message), class: "text-muted" %>
+        <%= link_to "Edit", edit_message_path(message), class: "text-muted", data: { turbo_stream: true } %>
 
         <%= link_to "Delete", message, data: { turbo: true, turbo_method: "delete" }, class: "text-muted" %>
       <% end %>
